@@ -1,0 +1,54 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Category {
+  id: ID!
+  title: String
+  todos: [Todo!]
+}
+
+input CreateCategoryInput {
+  title: String
+}
+
+input CreateTodoInput {
+  categoryName: String
+  text: String
+}
+
+type Mutation {
+  createCategory(input: CreateCategoryInput!): Category!
+  createTodo(input: CreateTodoInput!): Todo!
+  removeCategory(id: Float!): Category!
+  removeTodo(id: Float!): Todo!
+  updateCategory(input: UpdateCategoryInput!): Category!
+  updateTodo(input: UpdateTodoInput!): Todo!
+}
+
+type Query {
+  categories: [Category!]!
+  category(id: Float!): Category!
+  todo(id: Float!): Todo!
+  todos: [Todo!]!
+}
+
+type Todo {
+  category: Category
+  categoryId: Float!
+  id: ID!
+  isCompleted: Boolean!
+  text: String
+}
+
+input UpdateCategoryInput {
+  id: ID!
+  title: String
+}
+
+input UpdateTodoInput {
+  categoryId: Float
+  id: ID!
+  isCompleted: Boolean
+  text: String
+}
