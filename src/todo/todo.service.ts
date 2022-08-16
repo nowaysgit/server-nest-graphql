@@ -4,6 +4,7 @@ import { Todo } from './todo.entity';
 import { CreateTodoInput } from './dtos/create-todo.input';
 import { UpdateTodoInput } from './dtos/update-todo.input';
 import { Category } from '../category/category.entity';
+import { RemoveResponse } from 'src/interfaces/RemoveResponse';
 
 @Injectable()
 export class TodoService {
@@ -47,15 +48,15 @@ export class TodoService {
     });
   }
 
-  async remove(id: number): Promise<number> {
+  async remove(id: number): Promise<RemoveResponse> {
     const candidate = await this.repository.findOne<Todo>({
       where: { id: id },
     });
     if (candidate) {
       await candidate.destroy();
-      return 1;
+      return { status: 1 };
     }
-    return 0;
+    return { status: 0 };
   }
 
   async update(input: UpdateTodoInput): Promise<Todo> {

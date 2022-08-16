@@ -4,6 +4,7 @@ import { Category } from './category.entity';
 import { UpdateCategoryInput } from './dtos/update-category.input';
 import { CreateCategoryInput } from './dtos/create-category.input';
 import { Todo } from '../todo/todo.entity';
+import { RemoveResponse } from 'src/interfaces/RemoveResponse';
 
 @Injectable()
 export class CategoryService {
@@ -51,16 +52,16 @@ export class CategoryService {
     });
   }
 
-  async remove(id: number): Promise<number> {
+  async remove(id: number): Promise<RemoveResponse> {
     try {
       const candidate = await this.repository.findOne<Category>({
         where: { id: id },
       });
       if (candidate) {
         await candidate.destroy({ force: true });
-        return 1;
+        return { status: 1 };
       }
-      return 0;
+      return { status: 0 };
     } catch (e) {
       console.log(e);
     }

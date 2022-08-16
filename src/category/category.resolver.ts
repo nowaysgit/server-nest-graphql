@@ -5,6 +5,7 @@ import { CreateCategoryInput } from './dtos/create-category.input';
 import { UpdateCategoryInput } from './dtos/update-category.input';
 import { UsePipes } from '@nestjs/common';
 import { ValidationPipe } from '../pipes/validation.pipe';
+import { RemoveResponse } from '../interfaces/RemoveResponse';
 
 @Resolver('Category')
 export class CategoryResolver {
@@ -42,12 +43,12 @@ export class CategoryResolver {
     return await this.service.update(input);
   }
 
-  @Mutation(() => Category)
+  @Mutation(() => RemoveResponse)
   @UsePipes(ValidationPipe)
   async removeCategory(
     @Args('id')
     id: number,
-  ): Promise<number> {
+  ): Promise<RemoveResponse> {
     return await this.service.remove(id);
   }
 }

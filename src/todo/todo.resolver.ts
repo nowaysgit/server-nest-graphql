@@ -5,6 +5,7 @@ import { CreateTodoInput } from './dtos/create-todo.input';
 import { UpdateTodoInput } from './dtos/update-todo.input';
 import { UsePipes } from '@nestjs/common';
 import { ValidationPipe } from '../pipes/validation.pipe';
+import { RemoveResponse } from '../interfaces/RemoveResponse';
 
 @Resolver('Todo')
 export class TodoResolver {
@@ -42,12 +43,12 @@ export class TodoResolver {
     return await this.service.update(input);
   }
 
-  @Mutation(() => Todo)
+  @Mutation(() => RemoveResponse)
   @UsePipes(ValidationPipe)
   async removeTodo(
     @Args('id')
     id: number,
-  ): Promise<number> {
+  ): Promise<RemoveResponse> {
     return await this.service.remove(id);
   }
 }

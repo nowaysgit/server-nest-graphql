@@ -33,12 +33,15 @@ import { AppController } from './app.controller';
         autoLoadModels: true,
         synchronize: true,
         ssl: configService.get<boolean>('DB_SSL'),
-        dialectOptions: configService.get<boolean>('DB_SSL') === true ? {
-          ssl: {
-            require: true,
-            rejectUnauthorized: false,
-          },
-        } : {},
+        dialectOptions:
+          configService.get<boolean>('DB_SSL') === true
+            ? {
+                ssl: {
+                  require: true,
+                  rejectUnauthorized: false,
+                },
+              }
+            : {},
         models: [Todo, Category],
       }),
       inject: [ConfigService],

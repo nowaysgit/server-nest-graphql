@@ -168,7 +168,7 @@ describe('TodoService', () => {
     it('remove', async () => {
       const target = await service.remove(1);
       const need = await Todo.findOne({ where: { id: 1 } });
-      expect(target).toEqual(1);
+      expect(target).toEqual({ status: 1 });
       expect(need).toEqual(null);
     });
   });

@@ -10,12 +10,11 @@ import {
 @InputType()
 export class UpdateTodoInput {
   @IsNotEmpty({ message: 'ID must be specified' })
-  @IsInt({ message: 'Must be number' })
   @Field(() => ID)
   id: number;
 
   @IsString({ message: 'Must be string' })
-  @Length(1, 60, { message: 'Can only be 1 to 60 characters' })
+  @Length(1, 255, { message: 'Can only be 1 to 255 characters' })
   @Field({ nullable: true })
   text: string;
 

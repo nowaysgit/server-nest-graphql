@@ -9,7 +9,7 @@ export class CreateTodoInput {
   categoryName: string;
 
   @IsString({ message: 'Must be string' })
-  @Length(1, 60, { message: 'Can only be 1 to 60 characters' })
+  @Length(1, 255, { message: 'Can only be 1 to 255 characters' })
   @Field({ nullable: true })
   text: string;
 }
