@@ -4,7 +4,7 @@ import { Category } from './category.entity';
 import { UpdateCategoryInput } from './dtos/update-category.input';
 import { CreateCategoryInput } from './dtos/create-category.input';
 import { Todo } from '../todo/todo.entity';
-import { RemoveResponse } from 'src/interfaces/RemoveResponse';
+import { RemoveResponse } from 'src/dtos/removeResponse';
 
 @Injectable()
 export class CategoryService {

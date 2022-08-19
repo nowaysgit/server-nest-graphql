@@ -5,7 +5,7 @@ import { CreateTodoInput } from './dtos/create-todo.input';
 import { UpdateTodoInput } from './dtos/update-todo.input';
 import { UsePipes } from '@nestjs/common';
 import { ValidationPipe } from '../pipes/validation.pipe';
-import { RemoveResponse } from '../interfaces/RemoveResponse';
+import { RemoveResponse } from '../dtos/removeResponse';
 
 @Resolver('Todo')
 export class TodoResolver {

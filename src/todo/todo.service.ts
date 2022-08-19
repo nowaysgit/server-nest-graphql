@@ -4,7 +4,7 @@ import { Todo } from './todo.entity';
 import { CreateTodoInput } from './dtos/create-todo.input';
 import { UpdateTodoInput } from './dtos/update-todo.input';
 import { Category } from '../category/category.entity';
-import { RemoveResponse } from 'src/interfaces/RemoveResponse';
+import { RemoveResponse } from 'src/dtos/removeResponse';
 
 @Injectable()
 export class TodoService {

@@ -5,7 +5,7 @@ import { CreateCategoryInput } from './dtos/create-category.input';
 import { UpdateCategoryInput } from './dtos/update-category.input';
 import { UsePipes } from '@nestjs/common';
 import { ValidationPipe } from '../pipes/validation.pipe';
-import { RemoveResponse } from '../interfaces/RemoveResponse';
+import { RemoveResponse } from '../dtos/removeResponse';
 
 @Resolver('Category')
 export class CategoryResolver {
